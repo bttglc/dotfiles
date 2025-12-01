@@ -1,0 +1,97 @@
+// Zellij Configuration with Gruvbox Dark Theme
+// Install to: ~/.config/zellij/config.kdl
+//
+// Zellij is a modern terminal multiplexer with better defaults than tmux
+// Documentation: https://zellij.dev
+
+// ============================================================================
+// General Settings
+// ============================================================================
+
+// Set default shell
+default_shell "zsh"
+
+// Scroll buffer size
+scroll_buffer_size 10000
+
+// Copy to clipboard when selecting text
+copy_on_select true
+
+// Automatically attach to a session if one exists
+on_force_close "quit"
+
+// ============================================================================
+// UI Settings
+// ============================================================================
+
+// Simplified UI (can be toggled with Ctrl+p then 'u')
+simplified_ui false
+
+// Pane frames
+pane_frames true
+
+// Theme
+theme "gruvbox-dark"
+
+// ============================================================================
+// Keybindings
+// ============================================================================
+
+// Use default keybindings (Ctrl+g for lock mode)
+// You can customize these, but defaults are good
+
+keybinds {
+    normal {
+        // Unbind dangerous keys if desired
+    }
+}
+
+// ============================================================================
+// Gruvbox Dark Theme Colors
+// ============================================================================
+
+themes {
+    gruvbox-dark {
+        fg "#ebdbb2"      // Gruvbox light foreground
+        bg "#282828"      // Gruvbox dark background
+        black "#282828"
+        red "#cc241d"
+        green "#98971a"
+        yellow "#d79921"
+        blue "#458588"
+        magenta "#b16286"
+        cyan "#689d6a"
+        white "#a89984"
+        orange "#d65d0e"
+    }
+}
+
+// ============================================================================
+// Layouts
+// ============================================================================
+
+// Default layout (you can customize this)
+default_layout "compact"
+
+// ============================================================================
+// Plugins
+// ============================================================================
+
+// Load default plugins
+// Zellij has built-in plugins for status bar, tabs, etc.
+
+// ============================================================================
+// Mouse Support
+// ============================================================================
+
+mouse_mode true
+
+// ============================================================================
+// Session Settings
+// ============================================================================
+
+// Auto-layout based on terminal size
+auto_layout true
+
+// Session serialization (save session state)
+session_serialization true

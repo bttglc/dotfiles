@@ -1,0 +1,19 @@
+# Git Configuration
+# Install to: ~/.gitconfig
+
+[user]
+	name = Gianluca Bottiglieri
+	email = bottiglierigianluca@icloud.com
+
+[core]
+	editor = nvim
+	excludesfile = /Users/bttglc/.gitignore_global
+
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = false
+
+[color]
+	ui = auto

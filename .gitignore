@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Backup files created by install script
+*.backup
+
+# Private/sensitive files
+*_history
+*.secret
+*.private
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Directory-specific ignores
+config/nvim/plugin/
+config/nvim/.netrwhist

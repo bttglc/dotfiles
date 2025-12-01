@@ -1,0 +1,168 @@
+-- Neovim Configuration with Gruvbox Theme
+-- Install to: ~/.config/nvim/init.lua
+--
+-- First time setup:
+-- 1. Open nvim
+-- 2. Run :Lazy to install plugins
+-- 3. Restart nvim
+
+-- ============================================================================
+-- Basic Settings
+-- ============================================================================
+
+vim.opt.number = true              -- Show line numbers
+vim.opt.relativenumber = true      -- Relative line numbers
+vim.opt.mouse = 'a'                -- Enable mouse
+vim.opt.ignorecase = true          -- Case insensitive search
+vim.opt.smartcase = true           -- Unless uppercase is used
+vim.opt.hlsearch = false           -- Don't highlight searches
+vim.opt.wrap = false               -- Don't wrap lines
+vim.opt.breakindent = true         -- Preserve indentation in wrapped text
+vim.opt.tabstop = 2                -- Tab width
+vim.opt.shiftwidth = 2             -- Indent width
+vim.opt.expandtab = true           -- Use spaces instead of tabs
+vim.opt.termguicolors = true       -- True color support
+vim.opt.signcolumn = "yes"         -- Always show sign column
+vim.opt.updatetime = 250           -- Faster completion
+vim.opt.splitright = true          -- Vertical splits to the right
+vim.opt.splitbelow = true          -- Horizontal splits below
+vim.opt.clipboard = "unnamedplus"  -- Use system clipboard
+vim.opt.scrolloff = 8              -- Keep 8 lines above/below cursor
+vim.opt.undofile = true            -- Persistent undo
+
+-- Set leader key to space
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
+-- ============================================================================
+-- Bootstrap lazy.nvim (Plugin Manager)
+-- ============================================================================
+
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable",
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+-- ============================================================================
+-- Plugins
+-- ============================================================================
+
+require("lazy").setup({
+  -- Gruvbox color scheme
+  {
+    "ellisonleao/gruvbox.nvim",
+    priority = 1000,
+    config = function()
+      require("gruvbox").setup({
+        contrast = "hard", -- Options: "hard", "soft", ""
+        transparent_mode = false,
+      })
+      vim.cmd("colorscheme gruvbox")
+    end,
+  },
+
+  -- File tree
+  {
+    "nvim-tree/nvim-tree.lua",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("nvim-tree").setup()
+    end,
+  },
+
+  -- Fuzzy finder
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
+
+  -- Syntax highlighting
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function()
+      require("nvim-treesitter.configs").setup({
+        ensure_installed = { "lua", "python", "javascript", "go", "rust", "bash" },
+        highlight = { enable = true },
+        indent = { enable = true },
+      })
+    end,
+  },
+
+  -- LSP and autocompletion
+  {
+    "neovim/nvim-lspconfig",
+  },
+
+  -- Status line with Gruvbox theme
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("lualine").setup({
+        options = {
+          theme = "gruvbox",
+        },
+      })
+    end,
+  },
+
+  -- Git signs
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("gitsigns").setup()
+    end,
+  },
+
+  -- Auto pairs
+  {
+    "windwp/nvim-autopairs",
+    config = function()
+      require("nvim-autopairs").setup()
+    end,
+  },
+
+  -- Comment plugin
+  {
+    "numToStr/Comment.nvim",
+    config = function()
+      require("Comment").setup()
+    end,
+  },
+})
+
+-- ============================================================================
+-- Key Mappings
+-- ============================================================================
+
+-- File tree
+vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', { desc = 'Toggle file tree' })
+
+-- Telescope fuzzy finder
+vim.keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<cr>', { desc = 'Find files' })
+vim.keymap.set('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', { desc = 'Live grep' })
+vim.keymap.set('n', '<leader>fb', '<cmd>Telescope buffers<cr>', { desc = 'Find buffers' })
+
+-- Better window navigation
+vim.keymap.set('n', '<C-h>', '<C-w>h')
+vim.keymap.set('n', '<C-j>', '<C-w>j')
+vim.keymap.set('n', '<C-k>', '<C-w>k')
+vim.keymap.set('n', '<C-l>', '<C-w>l')
+
+-- Save file
+vim.keymap.set('n', '<leader>w', ':w<CR>', { desc = 'Save file' })
+
+-- Quit
+vim.keymap.set('n', '<leader>q', ':q<CR>', { desc = 'Quit' })
+
+-- Clear search highlighting
+vim.keymap.set('n', '<Esc>', ':noh<CR>', { silent = true })
