@@ -7,7 +7,8 @@
 # ============================================================================
 
 brew "bat"           # Cat clone with syntax highlighting
-brew "black"         # Python formatter
+#brew "oven-sh/bun/bun" # All-in-one toolkit for developing JS/TS applications.
+brew "docker"        # Containerization
 brew "eza"           # Modern ls replacement
 brew "fd"            # Fast find alternative (needed for Telescope)
 brew "ffmpeg"        # Multimedia framework
@@ -23,10 +24,11 @@ brew "lua-language-server" # Lua LSP server
 brew "mas"           # Mac App Store CLI
 brew "neofetch"      # System information tool
 brew "neovim"        # Modern terminal editor
-brew "node"          # Node.js
+#brew "opencode"      # AI coding agent for the terminal
 brew "openjdk"       # Java JDK
 brew "pandoc"        # Document converter
 brew "powerlevel10k" # Beautiful, fast zsh prompt theme
+#brew "presenterm"    # Presentation tool
 brew "pygments"      # Syntax highlighter (required for colorize plugin)
 brew "pyright"       # Python LSP server
 brew "ripgrep"       # Fast text search (rg)
@@ -35,6 +37,7 @@ brew "rust-analyzer" # Rust LSP server
 brew "stylua"        # Lua formatter
 brew "tree"          # Directory tree viewer
 brew "typst"         # Modern LaTeX alternative
+brew "uv"            # Python package manager
 brew "wget"          # Direct download tool
 brew "xz"            # Archive utility
 brew "yt-dlp"        # Video download utility
@@ -59,44 +62,57 @@ brew "zsh-syntax-highlighting" # Syntax highlighting for zsh (red/green commands
 
 cask "aldente"       # Battery management
 cask "anki"          # Spaced repetition
+cask "autodesk-fusion" # CAD software
+#cask "balenaetcher"  # Tool to flash
 cask "bambu-studio"  # 3D printing software
 cask "calibre"       # Ebook library
 cask "claude"        # Claude AI desktop app
 cask "claude-code"   # Claude Code CLI
-cask "crossover"     # Windows app compatibility
-cask "discord"       # VoIP client
-cask "dotnet-sdk"    # .NET development
+#cask "crossover"     # Windows app compatibility
+#cask "cyberduck"     # SFTP client
+#cask "discord"       # VoIP client
+#cask "dotnet-sdk"    # .NET development
 cask "espanso"       # Text expansion utility
-cask "figma"         # UI/UX design
+#cask "figma"         # UI/UX design
 cask "firefox"       # Privacy-focused browser
 cask "flux-app"      # Blue light filter
 cask "ghostty"       # Modern GPU-accelerated terminal
-cask "hammerspoon"   # Automation tool
-cask "heroic"        # Epic/GOG/Amazon games launcher
+#cask "hammerspoon"   # Automation tool
+#cask "heroic"        # Epic/GOG/Amazon games launcher
+#cask "jdownloader"   # Download manager
+cask "libreoffice"   # Office suite
+cask "logi-options+" # Logitech mouse tool
 cask "mactex"        # LaTeX distribution
-cask "mamp"          # Full stack development suite for SAW
-cask "obs"           # Screen recording
+#cask "mamp"          # Full stack development suite for SAW
+cask "microsoft-teams" # Team communication tool
+cask "miniconda"     # conda minimal installer
+cask "numi"          # Smart calculator
+#cask "obs"           # Screen recording
 cask "obsidian"      # Note taking
-cask "ollama-app"    # Local LLM runtime
-cask "openemu"       # Retro game emulator
-cask "openvpn-connect" # OpenVPN client
+#cask "ollama-app"    # Local LLM runtime
+#cask "openemu"       # Retro game emulator
+#cask "openvpn-connect" # OpenVPN client
+#cask "orbstack"      # Docker GUI
 cask "prismlauncher" # Minecraft launcher
-cask "pycharm"       # Python IDE
-cask "signal"        # Privacy-focused messaging
+#cask "pycharm"       # Python IDE
+#cask "signal"        # Privacy-focused messaging
 cask "spotify"       # Music streaming
-cask "steam"         # Gaming platform
+#cask "steam"         # Gaming platform
 cask "swish"         # Trackpad gestures for window management
 cask "transmission"  # Torrent client
 cask "visual-studio-code" # Code editor  
-cask "wireshark-app" # Network analysis
+cask "whatsapp"      # Messaging app
+#cask "wireshark-app" # Network analysis
+cask "zotero"        # Manage scientific paper references
 
 # ============================================================================
 # Mac App Store Applications
 # ============================================================================
 
+mas "ColorSlurp", id: 1287239339     # Color picker
 mas "ElMediaPlayer", id: 1044549675  # Video player
 mas "Things", id: 904280696          # GTD task manager
-
+mas "Tailscale", id: 1475387142      # Mesh net VPN
 
 # ============================================================================
 # Fonts
